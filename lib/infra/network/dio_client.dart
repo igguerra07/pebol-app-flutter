@@ -16,8 +16,7 @@ class DioClient implements ApiClient {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'charset': 'utf-8',
-      //'Authorization': 'Bearer test_e7059e3bea49f643440ecfa35fcdd6'
-      'Authorization': 'Bearer live_6df0a3e49a7c38dec3d0449bb4d388'
+      'Authorization': 'Bearer add_your_key'
     };
 
     dio.interceptors.add(LogInterceptor(
