@@ -69,52 +69,61 @@ class _MatchPageState extends State<MatchPage> with TickerProviderStateMixin {
           }
           if (state is MatchSuccessState) {
             final match = state.data;
-            return Stack(
+            return Column(
               children: [
-                const MatchDecorationBackground(),
-                Container(
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .12,
-                    left: 24,
-                    right: 24,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      MatchScoreCard(
-                        round: match.rodada,
-                        stadium: match.estadio.nome,
-                        awayTeam: match.timeMandante,
-                        homeTeam: match.timeVisitante,
-                        awayTeamScore: match.placarVisitante,
-                        homeTeamScore: match.placarMandante,
+                Stack(
+                  children: [
+                    const MatchDecorationBackground(),
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * .12,
+                        left: 24,
+                        right: 24,
                       ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            MatchPageViewTabs(
-                              tabController: _tabController,
-                            ),
-                            Expanded(
-                              child: MatchTabView(
-                                tabController: _tabController,
-                                children: [
-                                  OverviewTab(match: match),
-                                  StatusTab(matchStatus: match.estatisticas),
-                                  LineUpTab(
-                                    homeTeamLineUp: match.escalacoes.visitante,
-                                    awayTeamLineUp: match.escalacoes.mandante,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          MatchScoreCard(
+                            round: match.rodada,
+                            stadium: match.estadio.nome,
+                            awayTeam: match.timeMandante,
+                            homeTeam: match.timeVisitante,
+                            awayTeamScore: match.placarVisitante,
+                            homeTeamScore: match.placarMandante,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        MatchPageViewTabs(
+                          tabController: _tabController,
                         ),
-                      ),
-                    ],
+                        Expanded(
+                          child: MatchTabView(
+                            tabController: _tabController,
+                            children: [
+                              OverviewTab(match: match),
+                              StatusTab(matchStatus: match.estatisticas),
+                              LineUpTab(
+                                homeTeam: match.timeMandante,
+                                awayTeam: match.timeVisitante,
+                                homeTeamLineUp: match.escalacoes.visitante,
+                                awayTeamLineUp: match.escalacoes.mandante,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                )
+                ),
               ],
             );
           }
