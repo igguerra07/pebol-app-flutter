@@ -24,15 +24,9 @@ class MatchPageViewTabs extends StatelessWidget {
         labelColor: Colors.blueGrey,
         indicatorColor: Colors.blueGrey,
         tabs: const [
-          Tab(
-            text: "Resumo",
-          ),
-          Tab(
-            text: "Status",
-          ),
-          Tab(
-            text: "Escalação",
-          ),
+          Tab(text: "Resumo"),
+          Tab(text: "Status"),
+          Tab(text: "Escalação"),
         ],
       ),
     );
