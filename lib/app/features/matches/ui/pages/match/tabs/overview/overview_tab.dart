@@ -12,11 +12,11 @@ class OverviewTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        vertical: 16,
-        horizontal: 8,
-      ),
+    return SingleChildScrollView(
+       padding: const EdgeInsets.symmetric(
+      vertical: 16,
+      horizontal: 8,
+    ),
       child: Column(
         children: [
            OverviewItem(

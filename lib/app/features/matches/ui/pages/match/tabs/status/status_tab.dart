@@ -15,7 +15,7 @@ class StatusTab extends StatelessWidget {
     final homeTeam = matchStatus.mandante;
     final awayTeam = matchStatus.visitante;
 
-    return Container(
+    return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(
         vertical: 16,
         horizontal: 8,
